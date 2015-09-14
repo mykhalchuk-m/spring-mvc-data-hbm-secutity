@@ -21,6 +21,8 @@ import com.test.mmm.repository.UsersRepository;
 @Service("userDetailsService")
 public class CustomUserDetailsService implements UserDetailsService, Serializable {
 
+    private static final long serialVersionUID = 1340607602118264243L;
+
     @Autowired
     private UsersRepository usersRepository;
 
@@ -31,7 +33,7 @@ public class CustomUserDetailsService implements UserDetailsService, Serializabl
         } else {
             return new UserDetails() {
                 public Collection<? extends GrantedAuthority> getAuthorities() {
-                    return Arrays.asList(new SimpleGrantedAuthority("ADMIN_VASYA"));
+                    return Arrays.asList(new SimpleGrantedAuthority("ROLE_ADMIN"));
                 }
 
                 public String getPassword() {
